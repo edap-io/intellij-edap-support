@@ -1,7 +1,7 @@
 <idea-plugin>
   <id>io.edap.plugin.intellij.support</id>
   <name>edap-support</name>
-  <version>1.0</version>
+  <version>0.1</version>
   <vendor email="louis@edap.io" url="http://www.edap.io">edap</vendor>
 
   <description>edap support, generator protocol buffer code, rpc interface code</description>
