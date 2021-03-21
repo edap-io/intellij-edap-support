@@ -4,7 +4,10 @@
   <version>0.1</version>
   <vendor email="louis@edap.io" url="http://www.edap.io">edap</vendor>
 
-  <description>edap support, generator protocol buffer code, rpc interface code</description>
+  <description>Edap support, generate java POJO,service interface code with edap's protocol buffer annotation from proto file.
+    &lt;br&gt;
+    key words: protocol buffer,proto,seriable,rpc
+  </description>
 
   <change-notes></change-notes>
 
