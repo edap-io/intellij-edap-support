@@ -23,7 +23,7 @@
   </extensions>
 
   <actions>
-    <action id="io.edap.intellij.plugin.actions.codegen" class="io.edap.intellij.plugin.actions.Codegen" text="codegen" description="生成java代码">
+    <action id="io.edap.intellij.plugin.actions.codegen" class="io.edap.intellij.plugin.actions.Codegen" text="codegen" description="generate java code">
       <add-to-group group-id="ProjectViewPopupMenu" anchor="after" relative-to-action="ReplaceInPath"/>
     </action>
   </actions>

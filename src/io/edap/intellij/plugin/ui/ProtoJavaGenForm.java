@@ -20,10 +20,10 @@ public class ProtoJavaGenForm extends DialogWrapper {
     private ComboBox<String> srcDirsBox;
     private JCheckBox rpcAnnBox;
     private CodeGenParam codeGenParam;
-    private static Label srcDirLabel = new Label("Java代码路径");
+    private static Label srcDirLabel = new Label("src path");
 
     static {
-        srcDirLabel.setText("Java代码路径");
+        srcDirLabel.setText("src path");
     }
 
     private String[] srcDirs;
@@ -32,9 +32,9 @@ public class ProtoJavaGenForm extends DialogWrapper {
         super(true);
         srcDirs = genParam.getSrcPaths();
         codeGenParam = genParam;
-        rpcAnnBox = new JCheckBox("添加edap-Rpc注解");
+        rpcAnnBox = new JCheckBox("add edap-rpc annotation");
         init();
-        setTitle("Proto文件Java代码生成");
+        setTitle("Protocol buffer Java code generate");
     }
 
     @Override
@@ -60,7 +60,7 @@ public class ProtoJavaGenForm extends DialogWrapper {
 //        south.setHorizontalAlignment(SwingConstants.RIGHT); //水平居中
 //        south.setVerticalAlignment(SwingConstants.CENTER); //垂直居中
 
-        JButton submit = new JButton("生成代码");
+        JButton submit = new JButton("generate");
         submit.setHorizontalAlignment(SwingConstants.CENTER); //水平居中
         submit.setVerticalAlignment(SwingConstants.CENTER); //垂直居中
         south.add(submit);
