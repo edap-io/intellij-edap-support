@@ -79,9 +79,9 @@ public class ProtoJavaGenForm extends DialogWrapper {
         buildOption.setChainOper(true);
         for (String proto : codeGenParam.getProtoPaths()) {
             System.out.println("\tproto=" + proto);
-            JavaGenerator.generate(new File(proto), new File(srcDirsBox.getItem()), buildOption);
+            JavaGenerator.generate(new File(proto), new File(srcDirsBox.getItemAt(srcDirsBox.getSelectedIndex())), buildOption);
         }
-        System.out.println("srcDirsBox=" + srcDirsBox.getItem());
+        System.out.println("srcDirsBox=" + srcDirsBox.getItemAt(srcDirsBox.getSelectedIndex()));
         System.out.println("rpcAnnBox=" + rpcAnnBox.isSelected());
 
 
