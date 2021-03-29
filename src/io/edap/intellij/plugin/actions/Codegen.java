@@ -43,7 +43,7 @@ public class Codegen extends AnAction {
             List<String> protoPaths = new ArrayList<>();
             for (VirtualFile proto : protos) {
                 msg.append(proto.getPath()).append("\n");
-                if ("proto".equalsIgnoreCase(file.getExtension())) {
+                if ("proto".equalsIgnoreCase(proto.getExtension())) {
                     protoPaths.add(file.getPath());
                 }
             }
