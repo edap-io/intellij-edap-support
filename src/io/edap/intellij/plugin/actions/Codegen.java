@@ -10,6 +10,7 @@ import com.intellij.openapi.vfs.VirtualFile;
 import io.edap.intellij.plugin.model.CodeGenParam;
 import io.edap.intellij.plugin.ui.ProtoJavaGenForm;
 import org.jetbrains.jps.model.java.JavaSourceRootType;
+import org.jf.util.CollectionUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,10 +39,31 @@ public class Codegen extends AnAction {
         if (file.isDirectory() && "proto".equalsIgnoreCase(file.getName())) {
             List<VirtualFile> protos = getProtoFiles(file.getChildren());
             StringBuilder msg = new StringBuilder();
+
+            List<String> protoPaths = new ArrayList<>();
             for (VirtualFile proto : protos) {
                 msg.append(proto.getPath()).append("\n");
+                if ("proto".equalsIgnoreCase(file.getExtension())) {
+                    protoPaths.add(file.getPath());
+                }
             }
-            Messages.showMessageDialog(mProject, msg.toString(), "select file", Messages.getInformationIcon());
+            if (protoPaths.isEmpty()) {
+                Messages.showMessageDialog(mProject, "no proto files", "error", Messages.getInformationIcon());
+            } else {
+                CodeGenParam genParam = new CodeGenParam();
+                String[] protoFiles = new String[protoPaths.size()];
+                protoPaths.toArray(protoFiles);
+                genParam.setProtoPaths(protoFiles);
+                String[] srcs = new String[srcDirs.size()];
+                if (srcDirs != null) {
+                    for (int i=0;i<srcDirs.size();i++) {
+                        srcs[i] = srcDirs.get(i).getPath();
+                    }
+                }
+                genParam.setSrcPaths(srcs);
+                boolean result = new ProtoJavaGenForm(genParam).showAndGet();
+                System.out.println("result=" + result);
+            }
         } else if ("proto".equalsIgnoreCase(file.getExtension())) { // 如果文件后缀名为proto则显示菜单
             // Messages.showMessageDialog(mProject, file.getPath(), "select file", Messages.getInformationIcon());
             CodeGenParam genParam = new CodeGenParam();
