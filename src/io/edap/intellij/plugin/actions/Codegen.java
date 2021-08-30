@@ -10,7 +10,6 @@ import com.intellij.openapi.vfs.VirtualFile;
 import io.edap.intellij.plugin.model.CodeGenParam;
 import io.edap.intellij.plugin.ui.ProtoJavaGenForm;
 import org.jetbrains.jps.model.java.JavaSourceRootType;
-import org.jf.util.CollectionUtils;
 
 import java.util.ArrayList;
 import java.util.List;
